@@ -1,0 +1,81 @@
+{
+  "id": "0045e923-5c2f-4b4b-a1d2-8d7d728eb7c2",
+  "prevId": "56cbf85b-68eb-4cb9-9555-5f057ef3b0f6",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.userData": {
+      "name": "userData",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "email": {
+          "name": "email",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "roomNumber": {
+          "name": "roomNumber",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "adharImage": {
+          "name": "adharImage",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "registoryPDF": {
+          "name": "registoryPDF",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "bankLoanDetails": {
+          "name": "bankLoanDetails",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "role": {
+          "name": "role",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
