@@ -2,8 +2,20 @@
 
 import { cn } from "@/lib/utils";
 import React, { useRef, useState } from "react";
+import { Button } from "./ui/button";
+import Label from "./label";
+import { TFile } from "./icons";
+import Link from "next/link";
+import PLink from "./PLink";
 
-const FileUpload = ({ onUploaded, name }) => {
+const FileUpload = ({
+  userId,
+  onUploaded,
+  docName,
+  name,
+  label,
+  required = false,
+}) => {
   const [error, setError] = useState("");
   const [uploading, setUploading] = useState(false);
   const fileInputRef = useRef(null);
@@ -22,7 +34,8 @@ const FileUpload = ({ onUploaded, name }) => {
     try {
       const formData = new FormData();
       formData.append("file", file);
-      formData.append("name", name);
+      formData.append("name", docName);
+      formData.append("userId", userId);
 
       const res = await fetch("/api/upload", {
         method: "POST",
@@ -45,7 +58,18 @@ const FileUpload = ({ onUploaded, name }) => {
   };
 
   return (
-    <div className="space-y-4">
+    <div className=" space-y-0.5 w-full">
+      <Label required={required}>{label}</Label>
+      <div className=" mt-2 flex items-center gap-1">
+        <TFile className=" shrink-0 text-gray-600" size={20} />
+        <PLink
+          href={name}
+          target="_blank"
+          className=" line-clamp-1 select-none hover:bg-gray-100 hover:text-gray-900 duration-200 text-sm flex items-center gap-1 w-fit text-gray-600 border py-0.5 px-2.5 cursor-pointer rounded-md"
+        >
+          {name}
+        </PLink>
+      </div>
       <input
         type="file"
         name="file"
@@ -55,17 +79,17 @@ const FileUpload = ({ onUploaded, name }) => {
         onChange={handleFileChange}
       />
 
-      <button
-        type="button"
+      <Button
+        variant="link"
         onClick={triggerFileSelect}
         className={cn(
-          "bg-blue-600 text-white text-sm font-semibold px-3 py-1.5 rounded ",
-          uploading ? "cursor-not-allowed" : "cursor-pointer"
+          "text-gray-600 text-sm font-semibold px-3 py-1.5 rounded ",
+          uploading ? "cursor-not-allowed opacity-50" : "cursor-pointer"
         )}
         disabled={uploading}
       >
-        {uploading ? "Uploading..." : "Click here to upload PDF"}
-      </button>
+        {uploading ? "Uploading..." : "upload File"}
+      </Button>
 
       {error && <p className="text-red-600 text-sm">{error}</p>}
     </div>

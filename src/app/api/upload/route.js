@@ -5,6 +5,7 @@ import r2 from "@/lib/r2";
 export async function POST(req) {
   const formData = await req.formData();
   const file = formData.get("file");
+  const userId = formData.get("userId");
   const reqFileName = formData.get("name") || "file";
 
   if (!file) {
@@ -13,11 +14,8 @@ export async function POST(req) {
 
   const arrayBuffer = await file.arrayBuffer();
   const buffer = Buffer.from(arrayBuffer);
-  const cookeisData = await req.cookies.get("data");
-  const data = JSON.parse(cookeisData.value);
   const fileExt = file.name.split(".").pop();
-  const fileName = `${data.id}-${reqFileName}.${fileExt}`;
-  // const fileName =
+  const fileName = `${userId}-${reqFileName}.${fileExt}`;
 
   try {
     await r2

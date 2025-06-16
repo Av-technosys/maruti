@@ -1,1 +1,0 @@
-ALTER TABLE "userData" RENAME COLUMN "password" TO "bankLoanDetails";

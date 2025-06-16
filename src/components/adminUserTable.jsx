@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Table,
@@ -9,43 +10,68 @@ import {
   TableRow,
 } from "./ui/table";
 import Link from "next/link";
+import { Trash2Icon } from "lucide-react";
+import { UserDeleteDialog } from "./userDeleteDialog";
 
 const AdminUserTable = ({ userData }) => {
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = React.useState(false);
+  const [user, setUser] = React.useState(null);
+
   return (
     <div className=" max-w-5xl mx-auto w-full h-full">
-      <Table>
-        <TableCaption>A list of your recent invoices.</TableCaption>
-        <TableHeader>
+      <UserDeleteDialog
+        isOpen={isDeleteDialogOpen}
+        setIsOpen={setIsDeleteDialogOpen}
+        user={user}
+      />
+      <Table className={"border rounded-md"}>
+        {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
+        <TableHeader className={"bg-gray-100"}>
           <TableRow>
-            <TableHead>Name</TableHead>
-            <TableHead>Email</TableHead>
-            <TableHead>Room Number</TableHead>
-            <TableHead>Adhar card</TableHead>
-            <TableHead>Pan card</TableHead>
+            <TableHead className={"font-semibold w-16"}>SNo.</TableHead>
+            <TableHead className={"font-semibold"}>Name</TableHead>
+            <TableHead className={"font-semibold"}>Mobile Number</TableHead>
+            <TableHead className={"font-semibold"}>Email</TableHead>
+            <TableHead className={"font-semibold"}>Building Number</TableHead>
+            {/* <TableHead>Adhar card</TableHead> */}
+            <TableHead className={"font-semibold"}>View details</TableHead>
+            <TableHead className={"font-semibold"}>Delete</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {userData.map((item) => {
+          {userData.map((item, idx) => {
             return (
-              <TableRow>
-                <TableCell className="font-medium">{item.name}</TableCell>
-                <TableCell>{item.email}</TableCell>
-                <TableCell>{item.roomNumber}</TableCell>
+              <TableRow key={idx}>
+                <TableCell className="font-medium">{idx + 1}</TableCell>
+                <TableCell className="font-medium">
+                  {item.nameOfUnitHolder}
+                </TableCell>
+                <TableCell className="">
+                  {item.mobileNumberOfUnitHolder[0]}
+                </TableCell>
+                <TableCell>{item.emailIDOfUnitHolder}</TableCell>
+                <TableCell>{item.existingBuilding}</TableCell>
                 <TableCell>
-                  {item?.adharImage && (
-                    <Link target="_blank" href={item.adharImage}>
-                      Click here
-                    </Link>
-                  )}
+                  <Link
+                    href={`/admin/user/?id=${item.id}`}
+                    className=" hover:underline cursor-pointer hover:text-blue-500"
+                  >
+                    Click here
+                  </Link>
                 </TableCell>
                 <TableCell>
-                  {item?.panImage && (
-                    <Link target="_blank" href={item.panImage}>
-                      Click here
-                    </Link>
-                  )}
+                  <Trash2Icon
+                    onClick={() => {
+                      setIsDeleteDialogOpen(true);
+                      setUser({
+                        name: item.nameOfUnitHolder,
+                        id: item.id,
+                      });
+                    }}
+                    size={20}
+                    className=" cursor-pointer hover:text-red-700 text-gray-900 hover:scale-110"
+                  />
                 </TableCell>
-                {/* <TableCell className="text-right">$250.00</TableCell> */}
               </TableRow>
             );
           })}

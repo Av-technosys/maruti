@@ -1,5 +1,5 @@
 {
-  "id": "56cbf85b-68eb-4cb9-9555-5f057ef3b0f6",
+  "id": "ed52914f-781a-4081-9455-c7fca8b2fc57",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -15,47 +15,283 @@
           "notNull": true,
           "default": "gen_random_uuid()"
         },
-        "name": {
-          "name": "name",
+        "name_of_unit_holder": {
+          "name": "name_of_unit_holder",
           "type": "varchar",
           "primaryKey": false,
           "notNull": false
         },
-        "email": {
-          "name": "email",
+        "email_id_of_unit_holder": {
+          "name": "email_id_of_unit_holder",
+          "type": "varchar[]",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "mobile_number_of_unit_holder": {
+          "name": "mobile_number_of_unit_holder",
+          "type": "varchar[]",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "contact_person_unit_holder": {
+          "name": "contact_person_unit_holder",
+          "type": "varchar[]",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "link_pan__unit_holder": {
+          "name": "link_pan__unit_holder",
           "type": "varchar",
           "primaryKey": false,
           "notNull": false
         },
-        "password": {
-          "name": "password",
+        "link_gst_certificate_unit_holder": {
+          "name": "link_gst_certificate_unit_holder",
           "type": "varchar",
           "primaryKey": false,
           "notNull": false
         },
-        "roomNumber": {
-          "name": "roomNumber",
+        "existing_building": {
+          "name": "existing_building",
           "type": "varchar",
           "primaryKey": false,
           "notNull": false
         },
-        "adharImage": {
-          "name": "adharImage",
+        "existing_unit_number": {
+          "name": "existing_unit_number",
           "type": "varchar",
           "primaryKey": false,
           "notNull": false
         },
-        "registoryPDF": {
-          "name": "registoryPDF",
+        "existing_floor": {
+          "name": "existing_floor",
           "type": "varchar",
           "primaryKey": false,
           "notNull": false
         },
-        "role": {
-          "name": "role",
+        "new_building_unit_number": {
+          "name": "new_building_unit_number",
           "type": "varchar",
           "primaryKey": false,
           "notNull": false
+        },
+        "new_building_floor_number": {
+          "name": "new_building_floor_number",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "area_in_existing_building": {
+          "name": "area_in_existing_building",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ninety_percent_addi_area": {
+          "name": "ninety_percent_addi_area",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "area_total": {
+          "name": "area_total",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "area_in_new_building": {
+          "name": "area_in_new_building",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "car_paring_floor": {
+          "name": "car_paring_floor",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "car_parking_number": {
+          "name": "car_parking_number",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "link_back_side_number_plate": {
+          "name": "link_back_side_number_plate",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "name_of_bank_pledge": {
+          "name": "name_of_bank_pledge",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "address_of_bank_pledge": {
+          "name": "address_of_bank_pledge",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "date_of_noc_by_awcl_pledge": {
+          "name": "date_of_noc_by_awcl_pledge",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "type_of_loan_pledge": {
+          "name": "type_of_loan_pledge",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "link_noc_by_company_pledge": {
+          "name": "link_noc_by_company_pledge",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "link_sanction_letter_pledge": {
+          "name": "link_sanction_letter_pledge",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "account_name_unit_holder": {
+          "name": "account_name_unit_holder",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "bank_name_unit_holder": {
+          "name": "bank_name_unit_holder",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "address_unit_holder": {
+          "name": "address_unit_holder",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "account_number_unit_holder": {
+          "name": "account_number_unit_holder",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ifsc_unit_holder": {
+          "name": "ifsc_unit_holder",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "link_cancelled_cheque_unit_holder": {
+          "name": "link_cancelled_cheque_unit_holder",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "name_of_lessee_lessee": {
+          "name": "name_of_lessee_lessee",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "date_of_leave_and_licence_document_lessee": {
+          "name": "date_of_leave_and_licence_document_lessee",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "validity_of_lease_and_license_document_lessee": {
+          "name": "validity_of_lease_and_license_document_lessee",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "lessee_nature_of_business": {
+          "name": "lessee_nature_of_business",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "link_of_lessee_agreement": {
+          "name": "link_of_lessee_agreement",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "name_of_depository_participant_demat": {
+          "name": "name_of_depository_participant_demat",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "dp_id_demat": {
+          "name": "dp_id_demat",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "demat_client_id": {
+          "name": "demat_client_id",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "link_holding_attachment_demat": {
+          "name": "link_holding_attachment_demat",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "physical_share_certificate_number": {
+          "name": "physical_share_certificate_number",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "folio_number_physical_share": {
+          "name": "folio_number_physical_share",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "distinctive_number_physical_share": {
+          "name": "distinctive_number_physical_share",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "link_of_share_certificate": {
+          "name": "link_of_share_certificate",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "shareHolderData": {
+          "name": "shareHolderData",
+          "type": "jsonb[]",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
         }
       },
       "indexes": {},
