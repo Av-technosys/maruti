@@ -178,7 +178,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
           title="Name & Contact Details of Unit Holder"
         >
           <div className=" py-4">
-            <div className=" flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
+            <div className=" flex flex-col sm:flex-row gap-4 w-full px-4 pb-4 sm:pt-4 ">
               <InputText
                 label="Name of Unit Holder"
                 isAdmin
@@ -204,7 +204,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
                 }
               />
             </div>
-            <div className="  flex flex-col sm:flex-row gap-6 mt-6 w-full px-4 ">
+            <div className="  flex flex-col sm:flex-row gap-6 sm:mt-6 w-full px-4 ">
               <InputTextArray
                 required
                 isAdmin
@@ -262,7 +262,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
           title="Unit Basic Details"
         >
           <div className=" py-4">
-            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-4 w-full px-4 pb-4 sm:pt-4 ">
               <InputText
                 isAdmin
                 label="Existing Building"
@@ -288,7 +288,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
                 }
               />
             </div>
-            <div className="  flex flex-col sm:flex-row gap-6 mt-6 w-full px-4 ">
+            <div className="  flex flex-col sm:flex-row gap-4 sm:mt-6 w-full px-4 ">
               <InputText
                 isAdmin
                 label="Existing Floor"
@@ -312,7 +312,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
           title="New Building Details"
         >
           <div className=" py-4">
-            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-4 w-full px-4 pb-4 sm:pt-4 ">
               <InputText
                 label="New Building Unit No"
                 placeholder="New Building Unit No"
@@ -345,7 +345,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
           title="Area Details "
         >
           <div className=" py-4">
-            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-4 w-full px-4 pb-4 sm:pt-4 ">
               <InputText
                 isAdmin
                 label="Area in Existing Building"
@@ -371,7 +371,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
                 }
               />
             </div>
-            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-4 w-full px-4  pb-4  sm:pt-4 ">
               <InputText
                 isAdmin
                 label="Total Area"
@@ -406,7 +406,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
           title="Car Parking in New Building"
         >
           <div className=" py-4">
-            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-4 w-full px-4 pb-4 sm:pt-4 ">
               <InputText
                 label="Floor"
                 placeholder="Car Parking Floor"
@@ -430,7 +430,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
                 }
               />
             </div>
-            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-4 w-full px-4 pb-4   sm:pt-4 ">
               <FileUpload
                 userId={userData.id}
                 label="Photo of backside number plate of vehicle"
@@ -453,7 +453,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
           title="Bank Pledge / Mortgage Details to be given by owner"
         >
           <div className=" py-4">
-            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-4 w-full px-4 pb-4 sm:pt-4 ">
               <InputText
                 label="Name of Bank "
                 placeholder="Bank Name"
@@ -477,7 +477,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
                 }
               />
             </div>
-            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-4 w-full px-4 pb-4 sm:pt-4 ">
               <DatePicker
                 label="Date of NOC by AWCL"
                 value={JSON.parse(userData.dateOfNocByAwclPledge)}
@@ -501,7 +501,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
                 }
               />
             </div>
-            <div className=" grid grid-cols-1 sm:grid-cols-2 gap-6 w-full px-4 py-4 ">
+            <div className=" grid grid-cols-1 sm:grid-cols-2 gap-4 w-full px-4 pb-4 sm:pt-4 ">
               <FileUpload
                 userId={userData.id}
                 label="NOC issued by Company"
@@ -536,7 +536,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
           title="Unit Holder Bank Details"
         >
           <div className=" py-4">
-            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-4 w-full px-4 pb-6 sm:pb-4 pt-4 ">
               <InputText
                 required
                 label="Account Name"
@@ -562,7 +562,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
                 }
               />
             </div>
-            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-4 w-full px-4 pb-4 sm:pt-4 ">
               <InputText
                 required
                 label="Address"
@@ -588,7 +588,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
                 }
               />
             </div>
-            <div className=" grid grid-cols-1 sm:grid-cols-2 gap-6 w-full px-4 py-4 ">
+            <div className=" grid grid-cols-1 sm:grid-cols-2 gap-4 w-full px-4 pb-4 sm:pt-4 ">
               <InputText
                 required
                 label="IFS Code"
@@ -624,7 +624,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
           title="Details of Lessee if Unit Given on lease "
         >
           <div className=" py-4">
-            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-4 w-full px-4 pb-4 sm:pt-4 ">
               <InputText
                 required
                 label="Name of Lessee"
@@ -650,7 +650,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
                 }
               />
             </div>
-            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-4 w-full px-4 pb-4 sm:pt-4 ">
               <DatePicker
                 required
                 label="Validity of Leave & License Document"
@@ -678,7 +678,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
                 }
               />
             </div>
-            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-4 w-full px-4 pb-4  sm:pt-4">
               <FileUpload
                 userId={userData.id}
                 required
@@ -702,7 +702,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
           title="Demat Information "
         >
           <div className=" py-4">
-            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-4 w-full px-4 pb-4 sm:pt-4 ">
               <InputText
                 isAdmin
                 label="Name of Depository Participant"
@@ -728,7 +728,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
                 }
               />
             </div>
-            <div className="  grid grid-cols-1 sm:grid-cols-2 gap-6 w-full px-4 py-4 ">
+            <div className="  grid grid-cols-1 sm:grid-cols-2 gap-4 w-full px-4 pb-4 sm:pt-4 ">
               <InputText
                 isAdmin
                 label="Demat Client ID"
@@ -763,7 +763,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
           title="If Physical Shares then following details to be given"
         >
           <div className=" py-4">
-            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-4 w-full px-4 pb-4 sm:pt-4 ">
               <InputText
                 label="Share Certificate No"
                 placeholder="Share Certificate No"
@@ -787,7 +787,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
                 }
               />
             </div>
-            <div className=" grid grid-cols-1 sm:grid-cols-2 gap-6 w-full px-4 py-4 ">
+            <div className=" grid grid-cols-1 sm:grid-cols-2 gap-4 w-full px-4 pb-4 sm:pt-4 ">
               <InputText
                 label="Distinctive No"
                 placeholder="Distinctive No"
@@ -951,15 +951,9 @@ function Card({ children, title, code, openBoxCode, setOpenBoxCode }) {
         }
         className=" flex gap-6 items-center justify-between bg-gray-50 border-b  px-4 py-3"
       >
-        <div className=" flex items-center gap-1 select-none text-sm font-semibold">
-          {code && (
-            <p>
-              <span className=" text-red-400">{code}</span> |
-            </p>
-          )}
-
-          <p> {title}</p>
-        </div>
+        <p className="    gap-1 select-none text-sm font-semibold">
+          {code && <span className=" text-red-400">{code}</span>} | {title}
+        </p>
         <TCaretDown
           className={` ${openBoxCode == code && " rotate-180"} duration-200 `}
           color="#888"

@@ -2,6 +2,7 @@ import { cookies, headers } from "next/headers";
 import UserDetail from "@/components/userDetailPage";
 import { getUserById, getUserByPhoneNumber } from "../../lib/useHelper";
 import { verifyToken } from "@/lib/jwt";
+import LogOutButton from "@/components/LogOutButton";
 
 export default async function Home() {
   // Getting next headers
@@ -34,6 +35,16 @@ export default async function Home() {
 
   // console.log(tokenData);
   const data = await getUserByPhoneNumber(phoneNumber);
+
+  if (!data || data.id === undefined) {
+    return (
+      <div className=" h-screen flex justify-center items-center">
+        <p className=" text-3xl font-semibold text-neutral-600">
+          User not found
+        </p>
+      </div>
+    );
+  }
   return (
     <div className=" bg-white    min-h-screen py-6 px-6  w-full">
       <p className=" text-3xl font-semibold text-neutral-600 text-center">
@@ -43,6 +54,7 @@ export default async function Home() {
         (SSBC)
       </p>
       <UserDetail existingUserDetails={data} />
+      <LogOutButton />
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { db } from "../../../../lib/db";
 import { userData } from "../../../../db/schema";
 import { eq } from "drizzle-orm";
+import { revalidatePath } from "next/cache";
 
 export async function POST(request) {
   const data = await request.json();
@@ -14,5 +15,9 @@ export async function POST(request) {
     .set(data)
     .where(eq(userData.id, data.id))
     .returning();
+
+  revalidatePath("/admin");
+  revalidatePath("/");
+  revalidatePath("/admin/user");
   return NextResponse.json({ message: "Success" });
 }
