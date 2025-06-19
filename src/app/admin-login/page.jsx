@@ -6,56 +6,73 @@ import CustomInputNumber from "@/components/inputNumber";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Loader2 } from "lucide-react";
+import { auth } from "./../../../firebase.js";
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
   const [phone, setPhone] = useState("+91");
-  const [countryCode, setCountryCode] = useState("");
-  const [localNumber, setLocalNumber] = useState("");
-  const [email, setEmail] = useState("");
-  const [mobileChecked, setMobileChecked] = useState(false);
-  const [emailValid, setEmailValid] = useState(false);
   const [otp, setOtp] = useState("");
+  const [confirmationResult, setConfirmationResult] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [mobileChecked, setMobileChecked] = useState(false);
   const router = useRouter();
-  const handleMobileSubmit = async () => {
-    if (!phone || phone === "") {
-      setErrorMessage("Please enter a valid email");
+
+  useEffect(() => {
+    console.log(phone);
+  }, [phone]);
+
+  useEffect(() => {}, []);
+
+  const handleSendOTP = async () => {
+    if (!phone || phone.length < 10) {
+      setErrorMessage("Please enter a valid phone number.");
       return;
     }
+
+    setErrorMessage("");
     setLoading(true);
-    // const res = await fetch("/api/check-email", {
-    //   method: "POST",
-    //   body: JSON.stringify({ email }),
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // });
 
-    // const data = await res.json();
-
-    const wait = await new Promise((resolve) => setTimeout(resolve, 2000));
+    try {
+    } catch (err) {
+      console.error(err);
+      setErrorMessage(err.message);
+    }
     setMobileChecked(true);
-    // if (data.found) {
-    //   setEmailValid(true);
-    // } else {
-    //   setEmailValid(false);
-    //   setErrorMessage("Email not found");
-    // }
+
     setLoading(false);
   };
 
-  const handleOTPSubmit = () => {
-    // alert(`Verifying OTP: ${otp}`);
-    setErrorMessage("");
-    if (otp == "123456") {
-      router.push("/admin");
+  const handleVerifyOTP = async () => {
+    if (!otp || otp.length < 6) {
+      setErrorMessage("Enter a valid OTP.");
       return;
     }
-    setErrorMessage("Invalid OTP");
+
+    try {
+      const response = await fetch("/api/auth/verify-otp", {
+        method: "POST",
+        body: JSON.stringify({ otp, phoneNumber: phone }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await response.json();
+      console.log(data);
+      if (data.error) {
+        setErrorMessage(data.error);
+        return;
+      }
+
+      router.push("/");
+    } catch (err) {
+      console.error(err);
+      setErrorMessage("Incorrect OTP. Please try again.");
+    }
   };
 
   return (
@@ -67,9 +84,12 @@ export default function LoginPage() {
       }}
       className=" w-full px-4 md:px-24  items-center flex gap-2 min-h-screen  h-full"
     >
-      <div className=" max-w-md rounded-2xl h-fit xl:max-w-2xl w-full flex  justify-center flex-col overflow-y-auto  bg-white py-8 px-4 xl:px-8 border">
-        <h1 className="  text-4xl font-semibold mb-4">Admin Login </h1>
-        <p className=" text-base mxl:text-md font-extralight mb-12 text-gray-500">
+      <div id="recaptcha-container"></div>
+      <div className=" sm:max-w-md rounded-2xl h-fit xl:max-w-2xl w-full flex  justify-center flex-col overflow-y-auto  bg-white py-8 px-4 xl:px-8 border">
+        <h1 className=" text-3xl md:text-4xl font-semibold mb-4">
+          Gala Holder's admin Log in.{" "}
+        </h1>
+        <p className=" text-base mxl:text-md mb-12 text-gray-500">
           Sign in effortlessly using your mobile number and receive a secure
           One-Time Password (OTP) instantly to access your account.{" "}
         </p>
@@ -80,8 +100,6 @@ export default function LoginPage() {
               label={"Enter your Mobile number"}
               phone={phone}
               setPhone={setPhone}
-              setCountryCode={setCountryCode}
-              setLocalNumber={setLocalNumber}
             />
           )}
 
@@ -100,13 +118,13 @@ export default function LoginPage() {
           <Button
             disabled={loading}
             size="xl"
-            onClick={mobileChecked ? handleOTPSubmit : handleMobileSubmit}
+            onClick={!mobileChecked ? handleSendOTP : handleVerifyOTP}
             className={cn(
               " bg-gray-600 w-full hover:bg-gray-700 mb-12  font-semibold text-white  rounded-full py-4",
               loading ? "opacity-50 !cursor-not-allowed" : "cursor-pointer"
             )}
           >
-            <p className=" text-md">
+            <div className=" text-md">
               {loading ? (
                 <div className=" flex items-center gap-2">
                   <Loader2 className="ml-2 animate-spin" />
@@ -117,44 +135,18 @@ export default function LoginPage() {
               ) : (
                 "Send OTP"
               )}
-            </p>
+            </div>
           </Button>
 
           {/* <div className=" flex items-center gap-1 justify-center  text-center text-gray-600">
             Login as{" "}
-            <Link href={"/admin/login"}>
+            <Link href={"/admin-login"}>
               <p className=" hover:underline text-blue-600">Admin</p>
             </Link>
           </div> */}
         </div>
 
-        {/* {!emailChecked && (
-          <>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="w-full p-2 border rounded mb-4"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-
-          </>
-        )} */}
-
-        {/* {emailChecked && emailValid && (
-          <div className=" flex items-center flex-col gap-4">
-            <p className="text-green-600 mb-2">Enter OTP below:</p>
-            <PInputOTP setOtp={setOtp} otp={otp} />
-            <Button
-              onClick={handleOtpSubmit}
-              className="w-full bg-green-600 hover:bg-green-700 cursor-pointer font-semibold text-white py-2 rounded"
-            >
-              Verify OTP
-            </Button>
-          </div>
-        )} */}
-
-        {/* {errorMessage && <p className="text-red-600">{errorMessage}</p>} */}
+        {errorMessage && <p className="text-red-600">{errorMessage}</p>}
       </div>
     </div>
   );

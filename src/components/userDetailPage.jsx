@@ -111,6 +111,8 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
     ],
   });
 
+  const [openBoxCode, setOpenBoxCode] = useState(null);
+
   // useEffect(() => {
   //   console.log(userData);
   // }, [userData]);
@@ -167,12 +169,16 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
   }, [userData.areaInExistingBuilding]);
 
   return (
-    <div className=" mt-12  flex flex-col max-w-7xl mx-auto  gap-8">
-      <SaveBtn loading={loading} onClick={handleSave} />
-      <div className="grid grid-cols-2 gap-6">
-        <Card code="N" title="Name & Contact Details of Unit Holder">
+    <div className=" mt-12  flex flex-col w-full max-w-[92rem] mx-auto  gap-8">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+        <Card
+          openBoxCode={openBoxCode}
+          setOpenBoxCode={setOpenBoxCode}
+          code="N"
+          title="Name & Contact Details of Unit Holder"
+        >
           <div className=" py-4">
-            <div className=" flex gap-6 w-full px-4 py-4 ">
+            <div className=" flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
               <InputText
                 label="Name of Unit Holder"
                 isAdmin
@@ -198,7 +204,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
                 }
               />
             </div>
-            <div className=" flex gap-6 mt-6 w-full px-4 ">
+            <div className="  flex flex-col sm:flex-row gap-6 mt-6 w-full px-4 ">
               <InputTextArray
                 required
                 isAdmin
@@ -224,7 +230,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
                 }
               />
             </div>
-            <div className=" grid grid-cols-2 gap-6 mt-6 w-full px-4 ">
+            <div className=" grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6 w-full px-4 ">
               <FileUpload
                 userId={userData.id}
                 label="PAN card"
@@ -249,9 +255,14 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
             </div>
           </div>
         </Card>
-        <Card code="U" title="Unit Basic Details">
+        <Card
+          openBoxCode={openBoxCode}
+          setOpenBoxCode={setOpenBoxCode}
+          code="U"
+          title="Unit Basic Details"
+        >
           <div className=" py-4">
-            <div className=" flex gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
               <InputText
                 isAdmin
                 label="Existing Building"
@@ -277,7 +288,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
                 }
               />
             </div>
-            <div className=" flex gap-6 mt-6 w-full px-4 ">
+            <div className="  flex flex-col sm:flex-row gap-6 mt-6 w-full px-4 ">
               <InputText
                 isAdmin
                 label="Existing Floor"
@@ -294,9 +305,14 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
             </div>
           </div>
         </Card>
-        <Card code="NB" title="New Building Details">
+        <Card
+          openBoxCode={openBoxCode}
+          setOpenBoxCode={setOpenBoxCode}
+          code="NB"
+          title="New Building Details"
+        >
           <div className=" py-4">
-            <div className=" flex gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
               <InputText
                 label="New Building Unit No"
                 placeholder="New Building Unit No"
@@ -322,9 +338,14 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
             </div>
           </div>
         </Card>
-        <Card code="A" title="Area Details ">
+        <Card
+          openBoxCode={openBoxCode}
+          setOpenBoxCode={setOpenBoxCode}
+          code="A"
+          title="Area Details "
+        >
           <div className=" py-4">
-            <div className=" flex gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
               <InputText
                 isAdmin
                 label="Area in Existing Building"
@@ -350,7 +371,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
                 }
               />
             </div>
-            <div className=" flex gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
               <InputText
                 isAdmin
                 label="Total Area"
@@ -378,9 +399,14 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
             </div>
           </div>
         </Card>
-        <Card code="C" title="Car Parking in New Building">
+        <Card
+          openBoxCode={openBoxCode}
+          setOpenBoxCode={setOpenBoxCode}
+          code="C"
+          title="Car Parking in New Building"
+        >
           <div className=" py-4">
-            <div className=" flex gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
               <InputText
                 label="Floor"
                 placeholder="Car Parking Floor"
@@ -404,7 +430,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
                 }
               />
             </div>
-            <div className=" flex gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
               <FileUpload
                 userId={userData.id}
                 label="Photo of backside number plate of vehicle"
@@ -421,11 +447,13 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
           </div>
         </Card>
         <Card
+          openBoxCode={openBoxCode}
+          setOpenBoxCode={setOpenBoxCode}
           code="BP"
           title="Bank Pledge / Mortgage Details to be given by owner"
         >
           <div className=" py-4">
-            <div className=" flex gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
               <InputText
                 label="Name of Bank "
                 placeholder="Bank Name"
@@ -449,7 +477,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
                 }
               />
             </div>
-            <div className=" flex gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
               <DatePicker
                 label="Date of NOC by AWCL"
                 value={JSON.parse(userData.dateOfNocByAwclPledge)}
@@ -473,7 +501,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
                 }
               />
             </div>
-            <div className=" grid grid-cols-2 gap-6 w-full px-4 py-4 ">
+            <div className=" grid grid-cols-1 sm:grid-cols-2 gap-6 w-full px-4 py-4 ">
               <FileUpload
                 userId={userData.id}
                 label="NOC issued by Company"
@@ -501,9 +529,14 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
             </div>
           </div>
         </Card>
-        <Card code="B" title="Unit Holder Bank Details">
+        <Card
+          openBoxCode={openBoxCode}
+          setOpenBoxCode={setOpenBoxCode}
+          code="B"
+          title="Unit Holder Bank Details"
+        >
           <div className=" py-4">
-            <div className=" flex gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
               <InputText
                 required
                 label="Account Name"
@@ -529,7 +562,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
                 }
               />
             </div>
-            <div className=" flex gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
               <InputText
                 required
                 label="Address"
@@ -555,7 +588,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
                 }
               />
             </div>
-            <div className=" grid grid-cols-2 gap-6 w-full px-4 py-4 ">
+            <div className=" grid grid-cols-1 sm:grid-cols-2 gap-6 w-full px-4 py-4 ">
               <InputText
                 required
                 label="IFS Code"
@@ -584,9 +617,14 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
             </div>
           </div>
         </Card>
-        <Card code="L" title="Details of Lessee if Unit Given on lease ">
+        <Card
+          openBoxCode={openBoxCode}
+          setOpenBoxCode={setOpenBoxCode}
+          code="L"
+          title="Details of Lessee if Unit Given on lease "
+        >
           <div className=" py-4">
-            <div className=" flex gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
               <InputText
                 required
                 label="Name of Lessee"
@@ -612,7 +650,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
                 }
               />
             </div>
-            <div className=" flex gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
               <DatePicker
                 required
                 label="Validity of Leave & License Document"
@@ -640,7 +678,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
                 }
               />
             </div>
-            <div className=" flex gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
               <FileUpload
                 userId={userData.id}
                 required
@@ -657,9 +695,14 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
             </div>
           </div>
         </Card>
-        <Card code="D" title="Demat Information ">
+        <Card
+          openBoxCode={openBoxCode}
+          setOpenBoxCode={setOpenBoxCode}
+          code="D"
+          title="Demat Information "
+        >
           <div className=" py-4">
-            <div className=" flex gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
               <InputText
                 isAdmin
                 label="Name of Depository Participant"
@@ -685,7 +728,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
                 }
               />
             </div>
-            <div className="  grid grid-cols-2 gap-6 w-full px-4 py-4 ">
+            <div className="  grid grid-cols-1 sm:grid-cols-2 gap-6 w-full px-4 py-4 ">
               <InputText
                 isAdmin
                 label="Demat Client ID"
@@ -714,11 +757,13 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
           </div>
         </Card>
         <Card
+          openBoxCode={openBoxCode}
+          setOpenBoxCode={setOpenBoxCode}
           code="P"
           title="If Physical Shares then following details to be given"
         >
           <div className=" py-4">
-            <div className=" flex gap-6 w-full px-4 py-4 ">
+            <div className="  flex flex-col sm:flex-row gap-6 w-full px-4 py-4 ">
               <InputText
                 label="Share Certificate No"
                 placeholder="Share Certificate No"
@@ -742,7 +787,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
                 }
               />
             </div>
-            <div className=" grid grid-cols-2 gap-6 w-full px-4 py-4 ">
+            <div className=" grid grid-cols-1 sm:grid-cols-2 gap-6 w-full px-4 py-4 ">
               <InputText
                 label="Distinctive No"
                 placeholder="Distinctive No"
@@ -770,14 +815,19 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
             </div>
           </div>
         </Card>
-        <Card title="Shareholders Name">
+        <Card
+          code=""
+          openBoxCode={openBoxCode}
+          setOpenBoxCode={setOpenBoxCode}
+          title="Shareholders Name"
+        >
           {userData.shareHolderData?.map((holderData, index) => {
             return (
               <div key={index} className=" py-4 px-4">
                 <p className=" border-b-2 font-medium border-gray-300">
                   {index + 1} st Holder
                 </p>
-                <div className=" grid grid-cols-2 gap-6 w-full  py-4 ">
+                <div className=" grid grid-cols-1 sm:grid-cols-2 gap-6 w-full  py-4 ">
                   <InputText
                     label="Name"
                     isAdmin
@@ -881,17 +931,24 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
 
 export default UserDetail;
 
-function Card({ children, title, code }) {
-  const [isOpen, setIsOpen] = React.useState(false);
+function Card({ children, title, code, openBoxCode, setOpenBoxCode }) {
   return (
     <div
       className={cn(
         " cursor-pointer h-fit border rounded-md overflow-hidden",
-        isOpen && " ring-2 ring-purple-300"
+        openBoxCode == code && " ring-2 ring-purple-300"
       )}
     >
       <div
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={() =>
+          setOpenBoxCode((prev) => {
+            if (prev != null && prev == code) {
+              return null;
+            } else {
+              return code;
+            }
+          })
+        }
         className=" flex gap-6 items-center justify-between bg-gray-50 border-b  px-4 py-3"
       >
         <div className=" flex items-center gap-1 select-none text-sm font-semibold">
@@ -904,12 +961,12 @@ function Card({ children, title, code }) {
           <p> {title}</p>
         </div>
         <TCaretDown
-          className={` ${isOpen && " rotate-180"} duration-200 `}
+          className={` ${openBoxCode == code && " rotate-180"} duration-200 `}
           color="#888"
           size={18}
         />
       </div>
-      {isOpen && children}
+      {openBoxCode == code && children}
     </div>
   );
 }

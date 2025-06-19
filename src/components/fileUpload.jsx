@@ -83,12 +83,12 @@ const FileUpload = ({
         variant="link"
         onClick={triggerFileSelect}
         className={cn(
-          "text-gray-600 text-sm font-semibold px-3 py-1.5 rounded ",
+          "text-gray-600 text-sm font-semibold px-0 py-1.5 rounded ",
           uploading ? "cursor-not-allowed opacity-50" : "cursor-pointer"
         )}
         disabled={uploading}
       >
-        {uploading ? "Uploading..." : "upload File"}
+        {uploading ? "Uploading..." : "Upload File"}
       </Button>
 
       {error && <p className="text-red-600 text-sm">{error}</p>}
