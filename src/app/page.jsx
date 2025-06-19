@@ -53,8 +53,10 @@ export default async function Home() {
       <p className=" text-xl font-semibold text-neutral-600 text-center">
         (SSBC)
       </p>
+      <div className=" max-w-[92rem]  mt-12 w-full mx-auto px-4">
+        <LogOutButton />
+      </div>
       <UserDetail existingUserDetails={data} />
-      <LogOutButton />
     </div>
   );
 }

@@ -13,9 +13,9 @@ const LogOutButton = () => {
     <div className=" ml-auto w-fit">
       <button
         onClick={handleLogout}
-        className=" w-fit ml-auto  py-2 px-4 rounded-md mt-12 text-white  bg-red-500 font-medium"
+        className=" w-fit ml-auto  py-2 px-4 rounded-md text-white  bg-red-500 hover:bg-red-600 duration-200 cursor-pointer font-medium"
       >
-        LogOutButton
+        Log Out
       </button>
     </div>
   );

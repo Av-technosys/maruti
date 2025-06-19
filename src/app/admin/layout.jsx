@@ -1,3 +1,4 @@
+import LogOutButton from "@/components/LogOutButton";
 import { PlusIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
@@ -19,7 +20,7 @@ function NavBar() {
       <Link href="/admin" className=" text-4xl ">
         Admin
       </Link>
-      <div className=" w-fit ml-auto">
+      <div className=" w-fit flex items-center gap-6 ml-auto">
         <Link
           href="/admin/user"
           size={"lg"}
@@ -29,6 +30,8 @@ function NavBar() {
           <PlusIcon color="white" className=" size-5" />
           <p className=" hover:text-white text-white font-semibold">Add User</p>
         </Link>
+
+        <LogOutButton />
       </div>
     </div>
   );
