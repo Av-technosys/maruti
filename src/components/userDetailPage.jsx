@@ -961,7 +961,7 @@ function Card({ children, title, code, openBoxCode, setOpenBoxCode }) {
         }
         className=" flex gap-6 items-center justify-between bg-gray-50 border-b  px-4 py-3"
       >
-        <p className="    gap-1 select-none text-sm font-semibold">
+        <p className="    gap-1 select-none text-base font-semibold">
           {code && <span className=" text-red-400">{code}</span>}
           {code && <span> | </span>}
           {title}

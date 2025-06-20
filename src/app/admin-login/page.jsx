@@ -68,7 +68,7 @@ export default function LoginPage() {
         return;
       }
 
-      router.push("/");
+      router.push("/admin");
     } catch (err) {
       console.error(err);
       setErrorMessage("Incorrect OTP. Please try again.");
@@ -82,14 +82,13 @@ export default function LoginPage() {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
-      className=" w-full px-4 md:px-24  items-center flex gap-2 min-h-screen  h-full"
+      className=" w-full px-2 md:px-24  sm:items-center flex gap-2 min-h-screen  h-full"
     >
-      <div id="recaptcha-container"></div>
-      <div className=" sm:max-w-md rounded-2xl h-fit xl:max-w-2xl w-full flex  justify-center flex-col overflow-y-auto  bg-white py-8 px-4 xl:px-8 border">
-        <h1 className=" text-3xl md:text-4xl font-semibold mb-4">
-          Gala Holder's admin Log in.{" "}
+      <div className=" sm:max-w-md mt-20 rounded-2xl h-fit xl:max-w-2xl w-full flex  justify-center flex-col overflow-y-auto  bg-white py-6 sm:py-8 px-4 xl:px-8 border">
+        <h1 className=" text-center sm:text-left text-3xl md:text-4xl font-semibold mb-4">
+          Gala Holder's Admin Log in.{" "}
         </h1>
-        <p className=" text-base mxl:text-md mb-12 text-gray-500">
+        <p className=" font-medium text-center sm:text-left text-base xl:text-lg mb-12 text-gray-700">
           Sign in effortlessly using your mobile number and receive a secure
           One-Time Password (OTP) instantly to access your account.{" "}
         </p>
@@ -120,7 +119,7 @@ export default function LoginPage() {
             size="xl"
             onClick={!mobileChecked ? handleSendOTP : handleVerifyOTP}
             className={cn(
-              " bg-gray-600 w-full hover:bg-gray-700 mb-12  font-semibold text-white  rounded-full py-4",
+              " bg-gray-600 w-full hover:bg-gray-700  mt-2 font-semibold text-white  rounded-full py-4",
               loading ? "opacity-50 !cursor-not-allowed" : "cursor-pointer"
             )}
           >
@@ -138,12 +137,12 @@ export default function LoginPage() {
             </div>
           </Button>
 
-          {/* <div className=" flex items-center gap-1 justify-center  text-center text-gray-600">
+          <div className=" flex items-center gap-1 mt-6 sm:mt-10 justify-center  text-center text-gray-600">
             Login as{" "}
-            <Link href={"/admin-login"}>
-              <p className=" hover:underline text-blue-600">Admin</p>
+            <Link href={"/login"}>
+              <p className=" hover:underline text-blue-600">Normal User</p>
             </Link>
-          </div> */}
+          </div>
         </div>
 
         {errorMessage && <p className="text-red-600">{errorMessage}</p>}

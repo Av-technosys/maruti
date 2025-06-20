@@ -26,32 +26,17 @@ export function UserDeleteDialog({ isOpen, setIsOpen, user }) {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <form>
-        {/* <DialogTrigger asChild>
-          <Button variant="outline">Open Dialog</Button>
-        </DialogTrigger> */}
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Delete User</DialogTitle>
-            {/* <DialogDescription>
-              Make changes to your profile here. Click save when you&apos;re
-              done.
-            </DialogDescription> */}
           </DialogHeader>
           <div className="grid gap-4">
             <div className=" flex items-center gap-2">
               <Label htmlFor="name-1">Name - </Label>
               <p className=" capitalize">{user?.name}</p>
-              {/* <Input id="name-1" name="name" defaultValue="Pedro Duarte" /> */}
             </div>
-            {/* <div className="grid gap-3">
-              <Label htmlFor="username-1">Username</Label>
-              <Input id="username-1" name="username" defaultValue="@peduarte" />
-            </div> */}
           </div>
           <DialogFooter>
-            {/* <DialogClose asChild>
-              <Button variant="outline">Cancel</Button>
-            </DialogClose> */}
             <Button
               disabled={isLoading}
               onClick={() => handleDeleteUser(user?.id)}
