@@ -51,7 +51,7 @@ export default function LoginPage() {
       setErrorMessage("Enter a valid OTP.");
       return;
     }
-
+    setLoading(true);
     try {
       const response = await fetch("/api/auth/verify-otp", {
         method: "POST",
@@ -72,6 +72,8 @@ export default function LoginPage() {
     } catch (err) {
       console.error(err);
       setErrorMessage("Incorrect OTP. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
