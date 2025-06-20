@@ -5,7 +5,7 @@ import React from "react";
 
 const Layout = ({ children }) => {
   return (
-    <div className=" max-w-6xl p-6 mx-auto w-full">
+    <div className=" max-w-6xl px-6 py-10 mx-auto w-full">
       <NavBar />
       {children}
     </div>

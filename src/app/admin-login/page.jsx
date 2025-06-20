@@ -142,7 +142,7 @@ export default function LoginPage() {
           <div className=" flex items-center gap-1 mt-6 sm:mt-10 justify-center  text-center text-gray-600">
             Login as{" "}
             <Link href={"/login"}>
-              <p className=" hover:underline text-blue-600">Normal User</p>
+              <p className=" hover:underline text-blue-600">User</p>
             </Link>
           </div>
         </div>

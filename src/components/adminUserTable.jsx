@@ -18,7 +18,7 @@ const AdminUserTable = ({ userData }) => {
   const [user, setUser] = React.useState(null);
 
   return (
-    <div className=" max-w-5xl mx-auto w-full h-full">
+    <div className="  w-full h-full">
       <UserDeleteDialog
         isOpen={isDeleteDialogOpen}
         setIsOpen={setIsDeleteDialogOpen}
