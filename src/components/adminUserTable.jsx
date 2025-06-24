@@ -28,13 +28,13 @@ const AdminUserTable = ({ userData }) => {
         {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
         <TableHeader className={"bg-gray-100"}>
           <TableRow>
-            <TableHead className={"font-semibold w-16"}>SNo.</TableHead>
+            <TableHead className={"font-semibold w-16"}>S No.</TableHead>
             <TableHead className={"font-semibold"}>Name</TableHead>
             <TableHead className={"font-semibold"}>Mobile Number</TableHead>
             <TableHead className={"font-semibold"}>Email</TableHead>
             <TableHead className={"font-semibold"}>Building Number</TableHead>
             {/* <TableHead>Adhar card</TableHead> */}
-            <TableHead className={"font-semibold"}>View details</TableHead>
+            <TableHead className={"font-semibold"}>Edit details</TableHead>
             <TableHead className={"font-semibold"}>Delete</TableHead>
           </TableRow>
         </TableHeader>
