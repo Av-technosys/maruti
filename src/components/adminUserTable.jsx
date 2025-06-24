@@ -35,7 +35,9 @@ const AdminUserTable = ({ userData }) => {
             <TableHead className={"font-semibold"}>Building Number</TableHead>
             {/* <TableHead>Adhar card</TableHead> */}
             <TableHead className={"font-semibold"}>Edit details</TableHead>
-            <TableHead className={"font-semibold"}>Delete</TableHead>
+            <TableHead className={"font-semibold text-center"}>
+              Delete
+            </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -69,7 +71,7 @@ const AdminUserTable = ({ userData }) => {
                       });
                     }}
                     size={20}
-                    className=" cursor-pointer hover:text-red-700 text-gray-900 hover:scale-110"
+                    className=" mx-auto cursor-pointer hover:text-red-700 text-gray-900 hover:scale-110"
                   />
                 </TableCell>
               </TableRow>

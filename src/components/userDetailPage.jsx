@@ -123,6 +123,7 @@ const UserDetail = ({ existingUserDetails = null, isNewUser = false }) => {
   async function handleSave() {
     setLoading(true);
     try {
+      // Validate the user data
       userDataSchema.parse(userData);
 
       const response = await fetch("/api/create-profile", {
